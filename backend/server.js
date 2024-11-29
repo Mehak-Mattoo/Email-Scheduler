@@ -1,7 +1,6 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require('body-parser');
-const { DateTime } = require('luxon');
 const { Agenda } = require('agenda');
 
 
@@ -9,7 +8,8 @@ const app = express();
 app.use(bodyParser.json()); 
 app.use(express.json());
 require("dotenv").config();
-
+const cors = require('cors');
+app.use(cors());
 
 const agenda = new Agenda({ db: { address: process.env.MONGO_DB, collection: 'jobs' } });
 
@@ -66,7 +66,7 @@ const transporter = nodemailer.createTransport({
         agenda.start();
      
   
-  // Start the Express server
+
   const PORT = process.env.PORT||8080;
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
