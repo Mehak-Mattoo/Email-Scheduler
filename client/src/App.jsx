@@ -1,12 +1,12 @@
-import './App.css'
-import Flow from './components/Flow'
-
+import "./App.css";
+import ScheduleEmail from "./components/ScheduleMail";
+import MyComponent from "./components/MyComponent";
 function App() {
   return (
     <>
-    <Flow/>
+      <ScheduleEmail />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
